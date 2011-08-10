@@ -2,8 +2,15 @@
 
 // yeah... we know :-O This is a dummy app, cut some slack
 
+$config = array(
+  'db_host' => 'localhost:/tmp/mysql/joline.sock',
+  'db_user' => 'sharon',
+  'db_pass' => 'GQOU72cF',
+  'db_name' => 'joline',
+);
+
 $noDatabase = true;
-if (isset($_SERVER['db_host']) && isset($_SERVER['db_user']) && isset($_SERVER['db_pass']) && isset($_SERVER['db_name'])) {
+if (isset($config['db_host']) && isset($config['db_user']) && isset($config['db_pass']) && isset($config['db_name'])) {
   $con = mysql_connect($_SERVER['db_host'], $_SERVER['db_user'], $_SERVER['db_pass']);
   if (!$con) {
     $noDatabase = true;
