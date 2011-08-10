@@ -11,13 +11,13 @@ $config = array(
 
 $noDatabase = true;
 if (isset($config['db_host']) && isset($config['db_user']) && isset($config['db_pass']) && isset($config['db_name'])) {
-  $con = mysql_connect($_SERVER['db_host'], $_SERVER['db_user'], $_SERVER['db_pass']);
+  $con = mysql_connect($config['db_host'], $config['db_user'], $config['db_pass']);
   if (!$con) {
     $noDatabase = true;
     die('Could not connect: ' . mysql_error());
   }
 
-  $noDatabase = !mysql_select_db($_SERVER['db_name'], $con);
+  $noDatabase = !mysql_select_db($config['db_name'], $con);
 
   if (isset($_POST['Content'])) {
     // Create Table if not exist
